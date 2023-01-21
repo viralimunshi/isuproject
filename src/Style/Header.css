@@ -1,0 +1,23 @@
+.header {
+  background: #446dd4;
+  /* min-height: 20vh; */
+}
+
+.App-logo {
+  padding-left: 20px;
+  padding-top: 20px;
+  height: 80%;
+  width: 60%;
+}
+
+.header-right {
+  float: right;
+  padding-top: 7px;
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-size: 50px;
+  color: white;
+}
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
