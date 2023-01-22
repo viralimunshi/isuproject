@@ -1,3 +1,85 @@
-.form {
-    padding-top: 120px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loginform, .regiform {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 130px;
+}
+
+form {
+    display: block;
+    position: relative;
+}
+
+form:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: 1;
+    background-image: linear-gradient(to bottom right, #87CEFA, #0000FF);
+}
+
+form .form-inner {
+    position: relative;
+    display: block;
+    background-color: #FFF;
+    padding: 30px;
+    z-index: 2;
+    width: 360px;
+    height: 400px;
+}
+
+label {
+    margin-bottom: 5px;
+    padding: 0.4s;
+}
+
+input {
+    appearance: none;
+    margin: 0.5 rem 0;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #F8F8F8;
+    transition: 0.4s;
+}
+
+.form-btn {
+    padding-top: 15px;
+}
+
+/* input:focus {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+} */
+
+input[type="submit"] {
+    display: inline-block;
+    padding-top: 15px;
+    /* margin-top: 15px; */
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-size: 200%;
+    background-position: 0%;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.link-btn {
+    background-color: white;
+    text-decoration: underline;
+    appearance: none;
+    margin: 0.3rem 0;
+    border: none;
+    text-align: left;
 }

@@ -12,28 +12,28 @@ export default function Register(props) {
     }
 
     return (
-        <div>
-            <div className='row'>
-                <div className='col-md-5 offset-md-4 form'>
-                    <form onSubmit={handleSubmit}>
-                    <label htmlFor='name'>Full Name : </label>
+        <div className='regiform'>
+            <form onSubmit={handleSubmit}>
+                <div className='form-inner'>
+                    <label htmlFor='name'>Full Name:</label>
                     <input type='text' onChange={(e) => setName(e.target.value)}
                             placeholder='Full Name' id='name' name='name' value={fullname} required={true}/>
-                    <br/>
-                    <label htmlFor='email'>Email : </label>
+                    
+                    <label htmlFor='email'>Email:</label>
                     <input type='email' onChange={(e) => setEmail(e.target.value)}  
                             placeholder='Email' id='email' name='email' value={email} required={true}/>
-                    <br/>
-                    <label htmlFor='password'>Password : </label>
+                    
+                    <label htmlFor='password'>Password:</label>
                     <input type='password' onChange={(e) => setPassword(e.target.value)}
                             placeholder='Password' id='password' name='password' value={password} required={true}/>
-                    <br/>
-                    <button type='submit'>Register</button>
-                    <br/>
-                    </form>
-                    <button onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
-                </div>
-            </div>
+                    
+                    <div className='form-btn'>
+                        <button className='btn btn-primary' type='submit'>Register</button>
+                        <button className='link-btn' onClick={() => props.onFormSwitch('login')}>
+                            Already have an account? Login here.</button>
+                    </div>
+                </div>            
+            </form>
         </div>
     )
 }

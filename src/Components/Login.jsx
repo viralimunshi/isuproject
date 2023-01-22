@@ -8,27 +8,29 @@ export default function Login(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
+        console.log(password);
     }
 
     return (
-        <div>
-            <div className='row'>
-                <div className='col-md-5 offset-md-4 form'>
-                    <form onSubmit={handleSubmit}>
-                    <label htmlFor='email'>Email: </label>
+        <div className='loginform'>
+            <form onSubmit={handleSubmit}>
+                <div className='form-inner'>
+                    <label htmlFor='email'>Email:</label>
                     <input type='email' onChange={(e) => setEmail(e.target.value)} 
                             placeholder='Email' id='email' name='email' value={email} required={true}/>
-                    <br/>
-                    <label htmlFor='password'>Password: </label>
+                    
+                    <label htmlFor='password'>Password:</label>
                     <input type='password' onChange={(e) => setPassword(e.target.value)}
                             placeholder='Password' id='password' name='password' value={password} required={true}/>
-                    <br/>
-                    <button type='submit'>Log In</button>
-                    <br/>
-                    </form>
-                    <button onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
+                    
+                    <div className='form-btn'>
+                        <button className='btn btn-primary' type='submit'>Log In</button>
+                        <button className='link-btn' onClick={() => props.onFormSwitch('register')}>
+                            Don't have an account? Register here.</button>
+                        <button className='link-btn'>Forget Password?</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
