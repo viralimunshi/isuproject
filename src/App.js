@@ -1,14 +1,18 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from './Components/Header'
-import Main from './Components/Main';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Components/Header';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import { Route, Routes } from 'react-router-dom';
+import Homepage from './Components/Homepage';
 
 function App() {
   return (
-    <div>
-        <Header/>
-        <Main/>
-    </div>
+    <Routes>
+      <Route path='/login' element={<><Header/><Login/></>}></Route>
+      <Route path='/signup' element={<><Header/><Register/></>}></Route>
+      <Route path='/dashboard' element={<><Header/><Homepage/></>}></Route>
+    </Routes>
   );
 }
 

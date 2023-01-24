@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
-import '../Style/Form.css'
+import React, {useState} from 'react';
+import '../Style/Form.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register(props) {
     const [fullname, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState(''); 
+    let navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,7 +31,7 @@ export default function Register(props) {
                     
                     <div className='form-btn'>
                         <button className='btn btn-primary' type='submit'>Register</button>
-                        <button className='link-btn' onClick={() => props.onFormSwitch('login')}>
+                        <button className='link-btn' onClick={() => navigate('/login')}>
                             Already have an account? Login here.</button>
                     </div>
                 </div>            

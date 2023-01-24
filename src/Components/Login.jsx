@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
 import '../Style/Form.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState(''); 
+    let navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
-        console.log(password);
+        // console.log(email + ' :: ' + password);
+        navigate('/dashboard');
     }
 
     return (
@@ -24,10 +26,10 @@ export default function Login(props) {
                             placeholder='Password' id='password' name='password' value={password} required={true}/>
                     
                     <div className='form-btn'>
-                        <button className='btn btn-primary' type='submit'>Log In</button>
-                        <button className='link-btn' onClick={() => props.onFormSwitch('register')}>
+                        <button className='btn btn-primary' type='submit' onClick={props.login}>Log In</button>
+                        <button className='link-btn' onClick={() => navigate('/signup')}>
                             Don't have an account? Register here.</button>
-                        <button className='link-btn'>Forget Password?</button>
+                        {/* <button className='link-btn'>Forgot Password?</button> */}
                     </div>
                 </div>
             </form>
