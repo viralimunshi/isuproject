@@ -44,7 +44,7 @@ label {
     padding: 0.4s;
 }
 
-input {
+input, .msg {
     appearance: none;
     margin: 0.5 rem 0;
     border: none;
@@ -53,6 +53,10 @@ input {
     border-radius: 8px;
     background-color: #F8F8F8;
     transition: 0.4s;
+}
+
+.msg {
+    background-color: rgb(11, 204, 11);
 }
 
 .form-btn {

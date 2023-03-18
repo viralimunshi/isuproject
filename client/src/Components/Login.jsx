@@ -2,15 +2,12 @@ import React, {useState} from 'react'
 import '../Style/Form.css'
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
-// import { useDispatch } from 'react-redux';
-// import loginAction from './AuthAction';
+import Axios from 'axios';
 
 export default function Login(props) {
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState(''); 
     let navigate = useNavigate();
     const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState([]);
 
     const changeHandler = (e) => {
         const { name, value } = e.target;
@@ -19,18 +16,31 @@ export default function Login(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // const user = await loginUser(loginDetails);
-        // console.log(loginDetails.email + ' :: ' + loginDetails.password);
-        setUser(loginDetails.email);
-        // navigate('/dashboard');
-        // <Navigate to="/dashboard" state={email} replace={true} />
-        // return <Navigate to='/dashboard' replace state={{ from: location }}/>
+        Axios.post('http://localhost:3001/api/login', { 
+            email: loginDetails.email, 
+            password: loginDetails.password
+        }).then((response) => {
+            setUser(response.data);
+            if (response.data === '') {
+                document.getElementById('msg').hidden = false;
+            } else {
+                user.map((val) => {
+                    if(val.fullname !== '') {
+                        // console.log('in if val.fullname >> ' + val.fullname);
+                        return navigate('/dashboard',{state:{user:val.fullname}})
+                    }
+                });
+            }
+        });
     };
 
     return (
         <div className='loginform'>
             <form onSubmit={handleSubmit}>
                 <div className='form-inner'>
+                    <div className='msg' id='msg' hidden={true}>
+                        Invalid Email or Password!
+                    </div>
                     <label htmlFor='email'>Email:</label>
                     <input type='email' onChange={changeHandler} 
                             placeholder='Email' id='email' name='email' value={loginDetails.email} required={true}/>
@@ -47,7 +57,6 @@ export default function Login(props) {
                     </div>
                 </div>
             </form>
-            {user && <Navigate to="/dashboard" state={user} replace={true} />}
         </div>
     )
 }
