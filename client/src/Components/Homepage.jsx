@@ -195,7 +195,7 @@ export default function Homepage({ route }) {
             <tr>
               <td></td>
               <td>
-                <button className='btn btn-primary' type='submit' onSubmit={handleSubmit}>Log In</button>
+                <button className='btn btn-primary' type='submit' onSubmit={handleSubmit}>Submit</button>
               </td>
             </tr>
           </table>
