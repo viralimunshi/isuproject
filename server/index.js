@@ -37,6 +37,22 @@ app.post('/api/register', (req, res) => {
     })
 });
 
+app.post('/api/loadterm', (req, res) => { 
+    const sqlSelect = "SELECT term_id, term_name FROM `isu_cs_terms` WHERE is_active = 'Y';"
+    db.query(sqlSelect, (err, result) => {
+        if(err) console.log(err);
+        res.send(result);
+    });
+});
+
+app.post('/api/loadsubject', (req, res) => { 
+    const sqlSelect = "SELECT crn, sub_code, sub_name FROM `isu_cs_subjects`"
+    db.query(sqlSelect, (err, result) => {
+        if(err) console.log(err);
+        res.send(result);
+    });
+});
+
 app.listen(3001, () => {
     console.log('running on port 3001')
 });

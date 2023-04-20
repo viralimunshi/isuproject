@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import '../Style/Form.css'
 import { useNavigate } from 'react-router-dom';
-import { Navigate } from "react-router-dom";
 import Axios from 'axios';
 
 export default function Login(props) {
@@ -26,7 +25,6 @@ export default function Login(props) {
             } else {
                 user.map((val) => {
                     if(val.fullname !== '') {
-                        // console.log('in if val.fullname >> ' + val.fullname);
                         return navigate('/dashboard',{state:{user:val.fullname}})
                     }
                 });
