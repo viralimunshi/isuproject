@@ -20,7 +20,7 @@ export default function Login(props) {
             password: loginDetails.password
         }).then((response) => {
             setUser(response.data);
-            if (response.data === '') {
+            if (response.data.length === 0) {
                 document.getElementById('msg').hidden = false;
             } else {
                 user.map((val) => {

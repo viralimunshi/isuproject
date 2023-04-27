@@ -199,19 +199,6 @@ export default function Homepage({ route }) {
               </td>
             </tr>
           </table>
-
-          {/* <input type="checkbox" id="d2" name="d2" value="Tue" />
-          <label for="Tue">Tue</label>
-          <input type="checkbox" id="d3" name="d3" value="Wed" />
-          <label for="Wed">Wed</label>
-          <input type="checkbox" id="d4" name="d4" value="Thur" />
-          <label for="Thur">Thur</label>
-          <input type="checkbox" id="d5" name="d5" value="Fri" />
-          <label for="Fri">Fri</label>
-          <input type="checkbox" id="d6" name="d6" value="Sat" />
-          <label for="Sat">Sat</label>
-          <input type="checkbox" id="d7" name="d7" value="Sun" />
-          <label for="Sun">Sun</label> */}
         </div>
       </div>
     </div>
